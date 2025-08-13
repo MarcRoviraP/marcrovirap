@@ -19,10 +19,11 @@ jobs:
           AGE=$((CURRENT_YEAR - BIRTH_YEAR))
           echo "{\"schemaVersion\": 1, \"label\": \"Age\", \"message\": \"$AGE\", \"color\": \"blue\"}" > data.json
 
+      
       - name: Commit Age file
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data.json
           git commit -m "Update age badge" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MarcRoviraP/marcrovirap.git HEAD:main
