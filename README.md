@@ -28,8 +28,10 @@
 
 ###
 
-<p align="left">I'm Marc Rovira Perello from Benifaio, SPAIN 🇪🇸<br><br>I am ![Age](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MarcRoviraP/marcrovirap/main/data.json)
- years old.</p>
+I am  
+![Age](https://raw.githubusercontent.com/MarcRoviraP/marcrovirap/main/data.json)
+years old.
+
 
 ###
 
