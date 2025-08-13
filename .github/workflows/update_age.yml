@@ -1,29 +1,33 @@
 name: Update Age Badge
 
 on:
+  workflow_dispatch: # Permite ejecutar manualmente
   schedule:
-    - cron: '0 0 1 5 *' # Cada 1 de mayo a medianoche
-  workflow_dispatch: # Permite ejecutarlo manualmente también
+    - cron: '0 0 1 5 *' # Ejecuta el 1 de mayo a medianoche (opcional)
 
 jobs:
   update-age:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Calculate Age
+      - name: Calculate age
         run: |
           BIRTH_YEAR=2004
           CURRENT_YEAR=$(date +'%Y')
           AGE=$((CURRENT_YEAR - BIRTH_YEAR))
-          echo "{\"schemaVersion\": 1, \"label\": \"Age\", \"message\": \"$AGE\", \"color\": \"blue\"}" > data.json
+          echo "AGE=$AGE" >> $GITHUB_ENV
 
-      
-      - name: Commit Age file
+      - name: Generate JSON
+        run: |
+          echo "{\"schemaVersion\": 1, \"label\": \"\", \"message\": \"$AGE\", \"color\": \"blue\"}" > data.json
+
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data.json
           git commit -m "Update age badge" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/MarcRoviraP/marcrovirap.git HEAD:main
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
