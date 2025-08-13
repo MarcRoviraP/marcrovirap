@@ -28,7 +28,8 @@
 
 ###
 
-<p align="left">I'm Marc Rovira Perello from Benifaio, SPAIN 🇪🇸<br><br>I am 21 years old.</p>
+<p align="left">I'm Marc Rovira Perello from Benifaio, SPAIN 🇪🇸<br><br>I am ![Age](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MarcRoviraP/marcrovirap/main/data.json)
+ years old.</p>
 
 ###
 
