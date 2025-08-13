@@ -28,9 +28,7 @@
 
 ###
 
-I am  
-![Age](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MarcRoviraP/marcrovirap/main/data.json)
-years old.
+<p>I am 21 years old. </p>
 
 
 ###
